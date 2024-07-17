@@ -99,6 +99,11 @@ return [
         ],
     ],
 
+    'role' => [
+        'admin' => env('ADMIN_ROLE_ID', 1),
+        'client' => env('CLIENT_ROLE_ID', 2),
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Password Confirmation Timeout
