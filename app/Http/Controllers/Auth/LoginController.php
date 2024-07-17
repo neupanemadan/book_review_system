@@ -21,11 +21,23 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
-     * Where to redirect users after login.
+     * Handle the user after they are authenticated.
      *
-     * @var string
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\User $user
+     * @return \Illuminate\Http\Response
      */
-    protected $redirectTo = '/home';
+    protected function authenticated(\Illuminate\Http\Request $request, $user)
+    {
+        // Check the role_id of the authenticated user
+        if ($user->role_id == 1) {
+            // Redirect to admin dashboard if the user is an admin
+            return redirect()->route('dashboard');
+        }
+
+        // Redirect to user dashboard for other roles
+        return redirect()->route('mypage');
+    }
 
     /**
      * Create a new controller instance.
