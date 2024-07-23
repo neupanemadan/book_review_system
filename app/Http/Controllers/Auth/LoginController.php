@@ -32,11 +32,11 @@ class LoginController extends Controller
         // Check the role_id of the authenticated user
         if ($user->role_id == 1) {
             // Redirect to admin dashboard if the user is an admin
-            return redirect()->route('dashboard');
+            return redirect()->route('admin.dashboard');
         }
 
         // Redirect to user dashboard for other roles
-        return redirect()->route('mypage');
+        return redirect()->route('admin.mypage');
     }
 
     /**
