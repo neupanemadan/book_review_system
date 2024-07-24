@@ -18,6 +18,11 @@
                 @foreach($books as $book)
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
+                            @if ($book->cover_image)
+                                <img src="{{ asset('storage/' . $book->cover_image) }}" class="card-img-top" alt="{{ $book->title }}">
+                            @else
+                                <img src="{{ asset('images/default_cover.png') }}" class="card-img-top" alt="Default Cover">
+                            @endif
                             <div class="card-body">
                                 <h5 class="card-title">{{ $book->title }}</h5>
                                 <p class="card-text">Author: {{ $book->author }}</p>
