@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $books = Book::withCount('reviews')->get();
+        $books = Book::with('reviews')->get();
         return view('front.home', compact('books'));
     }
 }

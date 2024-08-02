@@ -5,9 +5,13 @@ use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Admin\HomeController as MyPageController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\Front\ReviewController;
+use App\Http\Controllers\Front\BookDetailController;
 
 // Frontend Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/books/{book}', [BookDetailController::class, 'show'])->name('books.show'); // Show book details
+Route::post('/books/{book}/reviews', [ReviewController::class, 'store'])->name('reviews.store'); // Store review
 
 Auth::routes();
 
