@@ -14,13 +14,13 @@ class ReviewController extends Controller
     {
         $request->validate([
             'rating' => 'required|integer|min:1|max:5',
-            'content' => 'required|string|max:1000',
+            'comment' => 'required|string|max:1000',
         ]);
 
         $review = new Review([
             'book_id' => $book->id,
             'user_id' => Auth::id(),
-            'content' => $request->input('content'),
+            'comment' => $request->input('comment'),
             'rating' => $request->input('rating'),
         ]);
 
